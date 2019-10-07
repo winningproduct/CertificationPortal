@@ -1,0 +1,8 @@
+# The simplest case
+type Badges @model @auth(rules: [{allow: owner}]) {
+  id: ID!
+  name: String!
+  avatar: String
+  complete: Boolean
+}
+
