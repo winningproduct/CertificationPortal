@@ -1,0 +1,14 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "certification-portal-dev-20191007133836-authRole",
+            "UnauthRoleArn": "arn:aws:iam::474717861439:role/certification-portal-dev-20191007133836-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::474717861439:role/certification-portal-dev-20191007133836-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "certification-portal-dev-20191007133836-deployment",
+            "UnauthRoleName": "certification-portal-dev-20191007133836-unauthRole",
+            "StackName": "certification-portal-dev-20191007133836",
+            "StackId": "arn:aws:cloudformation:us-east-1:474717861439:stack/certification-portal-dev-20191007133836/aa7ce590-e8d9-11e9-9564-0af77bd56d08"
+        }
+    }
+}
