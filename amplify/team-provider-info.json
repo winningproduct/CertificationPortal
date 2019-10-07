@@ -9,6 +9,11 @@
             "UnauthRoleName": "certification-portal-dev-20191007133836-unauthRole",
             "StackName": "certification-portal-dev-20191007133836",
             "StackId": "arn:aws:cloudformation:us-east-1:474717861439:stack/certification-portal-dev-20191007133836/aa7ce590-e8d9-11e9-9564-0af77bd56d08"
+        },
+        "categories": {
+            "auth": {
+                "certificationportale66948c0": {}
+            }
         }
     }
 }
