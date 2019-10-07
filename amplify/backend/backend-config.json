@@ -1,10 +1,5 @@
 {
 	"auth": {
-		"certificationportale66948c0": {
-			"service": "Cognito",
-			"providerPlugin": "awscloudformation",
-			"dependsOn": []
-		},
 		"certificationportal71bbab48": {
 			"service": "Cognito",
 			"providerPlugin": "awscloudformation",
