@@ -1,10 +1,10 @@
 import React , { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 import Amplify from 'aws-amplify';
 import awsconfig from './aws-exports';
 import { withAuthenticator } from 'aws-amplify-react'; // or 'aws-amplify-react-native';
+import Certifications from './components/Certifications';
 
 Amplify.configure(awsconfig);
 
@@ -13,10 +13,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Certification Portal!
-          </p>
+          <Certifications />
         </header>
       </div>
     );
