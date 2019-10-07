@@ -1,13 +1,13 @@
 import React from 'react';
 import Card from './Card';
-
+import '../style/certification.css'
 export default (props) => {
     const { data } = props;
     return (
-        <div>
+        <div className="cards">
         {
             data.map( data => (
-                <Card data={data} />
+                <Card key={data.id} data={data} />
             ))
         }
         </div>
