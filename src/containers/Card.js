@@ -15,7 +15,9 @@ export default (props) => {
                 <form>
                     <div id='inputForm'>
                     <label className="inp">
-                        <input type="text" name={val['name']} value={props[val['name']]} onChange={props.handleChange} id="inp" placeholder="Certify Url" />
+                        <input type="text" name={val['name']} value={props[val['name']]} onChange={props.handleChange} id="inp" placeholder="&nbsp;" />
+                        <span class="label">Label</span>
+                        <span class="border"></span>
                         </label>
                     </div>
                         <button className="submitButton" type="submit" name={val['name']} onClick={props.handleSubmit}>Take the Badge</button>
