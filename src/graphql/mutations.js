@@ -5,8 +5,8 @@ export const createBadges = `mutation CreateBadges($input: CreateBadgesInput!) {
   createBadges(input: $input) {
     id
     name
-    avatar
     complete
+    certificationUrl
     owner
   }
 }
@@ -15,8 +15,8 @@ export const updateBadges = `mutation UpdateBadges($input: UpdateBadgesInput!) {
   updateBadges(input: $input) {
     id
     name
-    avatar
     complete
+    certificationUrl
     owner
   }
 }
@@ -25,8 +25,8 @@ export const deleteBadges = `mutation DeleteBadges($input: DeleteBadgesInput!) {
   deleteBadges(input: $input) {
     id
     name
-    avatar
     complete
+    certificationUrl
     owner
   }
 }

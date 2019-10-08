@@ -7,7 +7,7 @@ export default (props) => {
         <div className="cards">
         {
             data.map( data => (
-                <Card key={data.id} data={data} />
+                <Card key={data.id} val={data} {...props} />
             ))
         }
         </div>
