@@ -1,23 +1,26 @@
 import React, { Component } from 'react'
-import Aux from '../Hoc/hocAux'
 import Cards from '../containers/Cards'
 import '../style/certification.css'
 export class Certifications extends Component {
     cardData = [
         {
             id: 1,
-            name: 'jobz',
-            age: 10
+            name: 'Associate',
+            img: 'associate.svg',
+            description: 'Anim deserunt commodo enim est veniam aliquip amet.Excepteur eu proident duis nulla commodo in mollit minim. Deserunt veniam veniam qui do sit exercitation. Cillum aliqua ad occaecat incididunt nostrud adipisicing.'
         },
         {
             id: 2,
-            name: 'jobz',
-            age: 10
+            name: 'Professional',
+            img: 'proffesional.svg',
+            description: 'Anim deserunt commodo enim est veniam aliquip amet. Excepteur eu proident duis nulla commodo in mollit minim. Deserunt veniam veniam qui do sit exercitation. Cillum aliqua ad occaecat incididunt nostrud adipisicing.'
+
         },
         {
             id: 3,
-            name: 'jobz',
-            age: 10
+            name: 'Guru',
+            img: 'guru.svg',
+            description: 'Anim deserunt commodo enim est veniam aliquip amet. Excepteur eu proident duis nulla commodo in mollit minim. Deserunt veniam veniam qui do sit exercitation. Cillum aliqua ad occaecat incididunt nostrud adipisicing.'
         }
     ]
   render() {
