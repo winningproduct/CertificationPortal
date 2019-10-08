@@ -5,8 +5,8 @@ export const getBadges = `query GetBadges($id: ID!) {
   getBadges(id: $id) {
     id
     name
-    avatar
     complete
+    certificationUrl
     owner
   }
 }
@@ -20,8 +20,8 @@ export const listBadgess = `query ListBadgess(
     items {
       id
       name
-      avatar
       complete
+      certificationUrl
       owner
     }
     nextToken
