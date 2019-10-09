@@ -1,8 +1,8 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateBadges = `subscription OnCreateBadges($owner: String!) {
-  onCreateBadges(owner: $owner) {
+export const onCreateCertificate = `subscription OnCreateCertificate($owner: String!) {
+  onCreateCertificate(owner: $owner) {
     id
     name
     complete
@@ -11,8 +11,8 @@ export const onCreateBadges = `subscription OnCreateBadges($owner: String!) {
   }
 }
 `;
-export const onUpdateBadges = `subscription OnUpdateBadges($owner: String!) {
-  onUpdateBadges(owner: $owner) {
+export const onUpdateCertificate = `subscription OnUpdateCertificate($owner: String!) {
+  onUpdateCertificate(owner: $owner) {
     id
     name
     complete
@@ -21,8 +21,8 @@ export const onUpdateBadges = `subscription OnUpdateBadges($owner: String!) {
   }
 }
 `;
-export const onDeleteBadges = `subscription OnDeleteBadges($owner: String!) {
-  onDeleteBadges(owner: $owner) {
+export const onDeleteCertificate = `subscription OnDeleteCertificate($owner: String!) {
+  onDeleteCertificate(owner: $owner) {
     id
     name
     complete

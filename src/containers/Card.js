@@ -20,7 +20,7 @@ export default (props) => {
                         <span className="border"></span>
                         </label>
                     </div>
-                        <button className="submitButton" type="submit" name={val['name']} onClick={props.handleSubmit}>Take the Badge</button>
+                        <button className="submitButton" type="submit" name={val['name']} onClick={props.handleSubmit}>Claim My Badge</button>
                 </form>
             </div>
             </div>

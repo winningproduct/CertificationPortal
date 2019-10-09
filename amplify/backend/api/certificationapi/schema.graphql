@@ -1,8 +1,9 @@
 # The simplest case
-type Badges @model @auth(rules: [{allow: owner}]) {
+type Certificate @model @auth(rules: [{allow: owner}]) {
   id: ID!
   name: String!
   complete: Boolean
   certificationUrl: String
+  owner: String!
 }
 

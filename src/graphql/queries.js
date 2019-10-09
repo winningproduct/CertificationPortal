@@ -1,8 +1,8 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getBadges = `query GetBadges($id: ID!) {
-  getBadges(id: $id) {
+export const getCertificate = `query GetCertificate($id: ID!) {
+  getCertificate(id: $id) {
     id
     name
     complete
@@ -11,12 +11,12 @@ export const getBadges = `query GetBadges($id: ID!) {
   }
 }
 `;
-export const listBadgess = `query ListBadgess(
-  $filter: ModelBadgesFilterInput
+export const listCertificates = `query ListCertificates(
+  $filter: ModelCertificateFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  listBadgess(filter: $filter, limit: $limit, nextToken: $nextToken) {
+  listCertificates(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
       name

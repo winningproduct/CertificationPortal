@@ -1,8 +1,8 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createBadges = `mutation CreateBadges($input: CreateBadgesInput!) {
-  createBadges(input: $input) {
+export const createCertificate = `mutation CreateCertificate($input: CreateCertificateInput!) {
+  createCertificate(input: $input) {
     id
     name
     complete
@@ -11,8 +11,8 @@ export const createBadges = `mutation CreateBadges($input: CreateBadgesInput!) {
   }
 }
 `;
-export const updateBadges = `mutation UpdateBadges($input: UpdateBadgesInput!) {
-  updateBadges(input: $input) {
+export const updateCertificate = `mutation UpdateCertificate($input: UpdateCertificateInput!) {
+  updateCertificate(input: $input) {
     id
     name
     complete
@@ -21,8 +21,8 @@ export const updateBadges = `mutation UpdateBadges($input: UpdateBadgesInput!) {
   }
 }
 `;
-export const deleteBadges = `mutation DeleteBadges($input: DeleteBadgesInput!) {
-  deleteBadges(input: $input) {
+export const deleteCertificate = `mutation DeleteCertificate($input: DeleteCertificateInput!) {
+  deleteCertificate(input: $input) {
     id
     name
     complete
