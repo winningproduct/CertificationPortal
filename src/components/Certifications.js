@@ -6,7 +6,6 @@ import * as mutations from '../graphql/mutations';
 import * as queries from '../graphql/queries';
 
 export class Certifications extends Component {
-  certificate = [];
   cardData = [
     {
       id: 1,
@@ -31,7 +30,7 @@ export class Certifications extends Component {
   cognitoUser = '';
 constructor(props) {
   super(props);
-  this.state = { Associate: '', Professional: '', Guru: '' };
+  this.state = { Associate: '', Professional: '', Guru: '' , certificate : []};
   this.handleChange = this.handleChange.bind(this);
   this.handleSubmit = this.handleSubmit.bind(this);
 }
@@ -66,13 +65,13 @@ componentDidMount() {
   Auth.currentAuthenticatedUser({
     bypassCache: false
   }).then( user => this.cognitoUser = user) ;
-  this.badges = API.graphql(graphqlOperation(queries.listCertificates)).then( data => {this.certificate = data.data.listCertificates.items});
+  API.graphql(graphqlOperation(queries.listCertificates)).then( data => {this.setState({certificate : data.data.listCertificates.items}) });
 }
 
 render() {
   return (
     <div className="container">
-      <Cards data={this.cardData} certificate={this.certificate} handleChange={this.handleChange} handleSubmit={this.handleSubmit} associate={this.state.associate} professional={this.state.professional} guru={this.state.guru} />
+      <Cards data={this.cardData} certificate={this.state.certificate} handleChange={this.handleChange} handleSubmit={this.handleSubmit} associate={this.state.associate} professional={this.state.professional} guru={this.state.guru} />
     </div>
   )
 }

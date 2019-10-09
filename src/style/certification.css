@@ -97,6 +97,27 @@ button:hover {
   display: flex;
 }
 
+.loneBadge {
+  min-width: 300px;
+  background-color: #50506d;
+  justify-content: center;
+  align-items: center;
+  border-top-left-radius: 0.4em;
+  border-bottom-left-radius: 0.4em;
+  border-top-right-radius: 0.4em;
+  border-bottom-right-radius: 0.4em;
+  flex-direction: column;
+  border: 2px solid #c8ccd4;
+}
+
+.loneBadge h1 {
+  color: #1fb58b !important;
+}
+
+.loneBadge p {
+  color: white !important;
+}
+
 h1 {
   color: #795479;
   margin: 20px;
