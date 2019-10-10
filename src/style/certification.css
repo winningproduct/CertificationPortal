@@ -51,9 +51,9 @@ button {
   border: 0.16em solid rgba(255, 255, 255, 0);
   box-shadow: 0px 0px 0px 0px rgba(239, 235, 233, 0), 0px 0px 5px 3px #d9e3efd9;
   border-top-left-radius: 0.5em;
-  border-top-right-radius: 0.5em;
+  /* border-top-right-radius: 0.5em; */
   border-bottom-right-radius: 0.5em;
-  border-bottom-left-radius: 0.5em;
+  /* border-bottom-left-radius: 0.5em; */
   box-sizing: border-box;
   text-decoration: none;
   font-family: "Roboto", sans-serif;

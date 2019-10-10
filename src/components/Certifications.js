@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Cards from '../containers/Cards'
 import '../style/certification.css'
-import { API, Auth, graphqlOperation } from "aws-amplify";
+import { API, Auth } from "aws-amplify";
 import * as mutations from '../graphql/mutations';
 import * as queries from '../graphql/queries';
 
@@ -28,54 +28,50 @@ export class Certifications extends Component {
     }
   ]
   cognitoUser = '';
-constructor(props) {
-  super(props);
-  this.state = { Associate: '', Professional: '', Guru: '' , certificate : []};
-}
 
-handleChange = (evt) => {
-  this.setState({ [evt.target.name]: evt.target.value });
-}
-
-handleSubmit = async (evt) => {
-  evt.preventDefault();
-  // let shouldUpdate = this.state.certificate.find( cert => cert.name === evt.target.name);
-  let shouldUpdate = undefined;
-  if (shouldUpdate) {
-    const badgeDetails = {
-      id: shouldUpdate.id,
-      name: `${evt.target.name}`,
-      complete: false,
-      certificationUrl: `${this.state[evt.target.name]}`
-    };
-    await API.graphql(graphqlOperation(mutations.updateCertificate, { input: badgeDetails }));
-  } else {
-    const badgeDetails = {
-      name: `${evt.target.name}`,
-      complete: false,
-      certificationUrl: `${this.state[evt.target.name]}`,
-      owner: this.cognitoUser.username
-    };
-    API.graphql(graphqlOperation(mutations.createCertificate, { input: badgeDetails }));
+  constructor(props) {
+    super(props);
+    this.state = { Associate: '', Professional: '', Guru: '', certificate: [] };
   }
-  let data = this.getCertificates();
-  this.setState({certificate : data.data.listCertificates.items})
-}
 
-componentDidMount() {
-  Auth.currentAuthenticatedUser({
-    bypassCache: false
-  }).then( user => this.cognitoUser = user) ;
-  API.graphql({query: queries.listCertificates , variables: {} , authMode : 'AMAZON_COGNITO_USER_POOLS' }).then( data => {this.setState({certificate : data.data.listCertificates.items}) });
-}
+  handleChange = (evt) => {
+    this.setState({ [evt.target.name]: evt.target.value });
+  }
 
-render() {
-  return (
-    <div className="container">
-      <Cards data={this.cardData} certificate={this.state.certificate} handleChange={this.handleChange} handleSubmit={this.handleSubmit} associate={this.state.associate} professional={this.state.professional} guru={this.state.guru} />
-    </div>
-  )
-}
+  handleSubmit = async (evt) => {
+    evt.preventDefault();
+    let shouldUpdate = this.state.certificate.find(cert => cert.name === evt.target.name);
+    if (shouldUpdate) {
+      const badgeDetails = {
+        id: shouldUpdate.id,
+        certificationUrl: `${this.state[evt.target.name]}`
+      };
+      await API.graphql({ query: mutations.updateCertificate, variables: { input: badgeDetails }, authMode: 'AMAZON_COGNITO_USER_POOLS' });
+    } else {
+      const badgeDetails = {
+        name: `${evt.target.name}`,
+        complete: false,
+        certificationUrl: `${this.state[evt.target.name]}`,
+        owner: this.cognitoUser.username
+      };
+      API.graphql({ query: mutations.createCertificate, variables: { input: badgeDetails }, authMode: 'AMAZON_COGNITO_USER_POOLS' });
+    }
+  }
+
+  componentDidMount() {
+    Auth.currentAuthenticatedUser({
+      bypassCache: false
+    }).then(user => this.cognitoUser = user);
+    API.graphql({ query: queries.listCertificates, variables: {}, authMode: 'AMAZON_COGNITO_USER_POOLS' }).then(data => { this.setState({ certificate: data.data.listCertificates.items }) });
+  }
+
+  render() {
+    return (
+      <div className="container">
+        <Cards data={this.cardData} certificate={this.state.certificate} handleChange={this.handleChange} handleSubmit={this.handleSubmit} associate={this.state.associate} professional={this.state.professional} guru={this.state.guru} />
+      </div>
+    )
+  }
 }
 
 export default Certifications
