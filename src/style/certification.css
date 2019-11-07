@@ -5,6 +5,7 @@
 }
 
 .card {
+  flex-direction: initial;
   box-sizing: border-box;
   background-color: #fff;
   display: flex;
@@ -47,7 +48,7 @@ img {
 button {
   display: inline-block;
   padding: 0.3em 1.2em;
-  margin: 0 0.1em .5em 0;
+  margin: 5px;
   border: 0.16em solid rgba(255, 255, 255, 0);
   box-shadow: 0px 0px 0px 0px rgba(239, 235, 233, 0), 0px 0px 5px 3px #d9e3efd9;
   border-top-left-radius: 0.5em;
@@ -121,6 +122,7 @@ button:hover {
 h1 {
   color: #795479;
   margin: 20px;
+  font-size: 1.5rem;
 }
 
 form {
@@ -135,7 +137,7 @@ form {
 }
 .inp .label {
   position: absolute;
-  top: 16px;
+  top: 8px;
   left: 10px;
   font-size: 16px;
   color: #9098a9;

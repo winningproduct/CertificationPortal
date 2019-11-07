@@ -45,6 +45,11 @@ class App extends Component {
           <div>
           <Navbar1 user={user} />
             <Switch>
+            <Route
+                exact
+                path="/"
+                render={props => <Certifications user={user} />}
+              />
               <Route
                 exact
                 path="/login"
