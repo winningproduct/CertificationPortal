@@ -5,9 +5,10 @@ import { Authenticator } from 'aws-amplify-react';
 export default class Login extends Component {
   render() {
     const { user } = this.props;
- 
+   console.log(this.props.user)
     return (
       <React.Fragment>
+        
         { !user && <Authenticator /> }
         { user && <Lead>You are signed in as {user.username}</Lead> }
       </React.Fragment>

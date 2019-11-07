@@ -4,6 +4,8 @@ import '../style/certification.css'
 import { API, Auth } from "aws-amplify";
 import * as mutations from '../graphql/mutations';
 import * as queries from '../graphql/queries';
+import { Lead } from 'bootstrap-4-react';
+import { Authenticator } from 'aws-amplify-react';
 
 export class Certifications extends Component {
   cardData = [
@@ -66,10 +68,19 @@ export class Certifications extends Component {
   }
 
   render() {
+    const { user } = this.props;
     return (
-      <div className="container">
+     <React.Fragment>
+        { !user && <Authenticator /> }
+        { user &&  <div className="container">
         <Cards data={this.cardData} certificate={this.state.certificate} handleChange={this.handleChange} handleSubmit={this.handleSubmit} associate={this.state.associate} professional={this.state.professional} guru={this.state.guru} />
-      </div>
+      </div>}
+      </React.Fragment>
+    
+       
+
+ 
+     
     )
   }
 }

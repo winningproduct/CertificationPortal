@@ -1,78 +1,77 @@
-import React, { Component } from 'react';
-import { Navbar, Nav, BSpan } from 'bootstrap-4-react';
-import { HashRouter, Route, Switch } from 'react-router-dom';
-import { SignOut } from 'aws-amplify-react';
-import { Hub } from 'aws-amplify';
-import { Auth } from 'aws-amplify';
-import JSignOut from './auth/JSignOut';
+import React, { Component } from "react";
+import { Navbar, Button } from "bootstrap-4-react";
 
-const HomeItems = props => (
-  <React.Fragment>
-    <Nav.ItemLink href="/" active>
-      Home
-      <BSpan srOnly>(current}</BSpan>
-    </Nav.ItemLink>
-    <Nav.ItemLink href="/login">
-      Login
-    </Nav.ItemLink>
-  </React.Fragment>
-)
+import { Hub } from "aws-amplify";
+import { Auth } from "aws-amplify";
 
-const LoginItems = props => (
-  <React.Fragment>
-    <Nav.ItemLink href="/">
-      Home
-    </Nav.ItemLink>
-    <Nav.ItemLink href="/login" active>
-      Login
-      <BSpan srOnly>(current}</BSpan>
-    </Nav.ItemLink>
-  </React.Fragment>
-)
 
-export default class Navigator extends Component {
-    constructor(props) {
-        super(props);
-    
-        this.loadUser = this.loadUser.bind(this);
-    
-        Hub.listen('auth', this, 'navigator'); // Add this component as listener of auth event.
-    
-        this.state = { user: null }
-      }
-      componentDidMount() {
-        this.loadUser(); // The first check
-      }
-      loadUser() {
-        Auth.currentAuthenticatedUser()
-          .then(user => this.setState({ user: user }))
-          .catch(err => this.setState({ user: null }));
-      }
-      
+export default class Navbar1 extends Component {
+  constructor(props) {
+    super(props);
+    this.loadUser = this.loadUser.bind(this);
+    Hub.listen("auth", this, "navigator");
+    this.state = { user: null, username: "", ButtonText: "SignUp" };
+    this.navButtonClicked = this.navButtonClicked.bind(this);
+  }
+  componentDidMount() {
+    this.loadUser();
+    this.setState({ user: this.props.user });
+    this.loadUser();
+  }
+  loadUser() {
+    Auth.currentAuthenticatedUser()
+      .then(user => this.setState({ user: user, ButtonText: "SignOut" }))
+      .catch(err => this.setState({ user: null }));
+  }
   onHubCapsule(capsule) {
     this.loadUser(); // Triggered every time user sign in / out
   }
+  navButtonClicked(e) {
+      e.preventDefault();
+      console.log(this.state.user)
+    // if ((this.state.user)===!null) {
+      Auth.signOut()
+        .then(data => {
+            
+            this.setState({ user: "null", ButtonText: "SignUp" })
+        })
+        .catch(err => console.log(err));
+        this.state.user=null; 
+    
+    
+  }
+
   render() {
-   
     return (
-      <Navbar expand="md" dark bg="dark" fixed="top">
-        <Navbar.Brand href="#">Journal</Navbar.Brand>
+      <Navbar expand="md" dark bg="dark">
+       
+        <Navbar.Brand href="/home">Home</Navbar.Brand>
+        <Navbar.Brand href="/myprofile">My Profile</Navbar.Brand>
+        
+        
+        <Navbar.Brand href="/Certifications">Certifications</Navbar.Brand>
         <Navbar.Toggler target="#navbarsExampleDefault" />
 
         <Navbar.Collapse id="navbarsExampleDefault">
-          <Navbar.Nav mr="auto">
-            <HashRouter>
-              <Switch>
-                <Route exact path="/" component={HomeItems} />
-                <Route exact path="/login" component={LoginItems} />
-              </Switch>
-            </HashRouter>
-          </Navbar.Nav>
-          <Navbar.Text>Greetings</Navbar.Text>
-        
-          <JSignOut />
+          <Navbar.Nav mr="auto"></Navbar.Nav>
+       
+         
+          <Navbar.Text
+            style={{ padding: "10px" }}
+            label="hasangga"
+          ></Navbar.Text>
+          <Button style={style.buttonCss} onClick={this.navButtonClicked}>
+            {this.state.ButtonText}
+          </Button>
         </Navbar.Collapse>
       </Navbar>
-    )
+    );
+  }
+}
+
+const style = {
+  buttonCss : {
+    backgroundColor : '#343a40',
+    boxShadow:'none'
   }
 }
